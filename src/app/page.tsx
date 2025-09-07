@@ -23,7 +23,7 @@ const WeatherPage = () => {
       try {
         const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
         if (!apiKey) {
-          throw new Error("Terjadi error dalam perkiraan cuaca. Silakan coba lagi.");
+          throw new Error("Terjadi error dalam prediksi cuaca. Silakan coba lagi.");
         }
         const response = await axios.get(
           `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lokasi}&days=1&aqi=no&alerts=no`
@@ -70,10 +70,10 @@ const WeatherPage = () => {
 
       <main className="z-10 w-full flex flex-col items-center">
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-2 text-center text-white/90">
-          Perkiraan Cuaca
+          Prediksi Cuaca
         </h1>
         <p className="text-md sm:text-lg text-white/60 mb-8 text-center">
-          Dapatkan info cuaca terkini dari seluruh dunia
+          Dapatkan info prediksi cuaca terkini dari seluruh belahan dunia!
         </p>
 
         <Lokasi
