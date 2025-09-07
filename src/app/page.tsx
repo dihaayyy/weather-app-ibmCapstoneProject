@@ -72,7 +72,7 @@ const WeatherPage = () => {
 
       <main className="z-10 w-full flex flex-col items-center">
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-2 text-center text-white/90">
-          Prakiraan Cuaca
+          Perkiraan Cuaca
         </h1>
         <p className="text-md sm:text-lg text-white/60 mb-8 text-center">
           Dapatkan info cuaca terkini dari seluruh dunia
