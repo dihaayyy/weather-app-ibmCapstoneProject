@@ -96,9 +96,9 @@ const Cuaca: React.FC<CuacaProps> = ({ data }) => {
         </div>
       </div>
 
-      {/* Prakiraan Per Jam */}
+      {/* Prediksi Per Jam */}
       <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-6">
-        <h3 className="text-xl font-bold text-white mb-4">Prakiraan 24 Jam</h3>
+        <h3 className="text-xl font-bold text-white mb-4">Prediksi 24 Jam</h3>
         <div className="overflow-x-auto pb-2">
           <div className="flex space-x-4">
             {data.forecast.map((jam) => (
