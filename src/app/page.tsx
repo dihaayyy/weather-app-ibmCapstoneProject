@@ -23,9 +23,7 @@ const WeatherPage = () => {
       try {
         const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
         if (!apiKey) {
-          throw new Error(
-            "API Key tidak ditemukan. Pastikan sudah diatur di .env.local"
-          );
+          throw new Error("Terjadi error dalam perkiraan cuaca. Silakan coba lagi.");
         }
         const response = await axios.get(
           `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lokasi}&days=1&aqi=no&alerts=no`
