@@ -36,11 +36,22 @@ const WeatherPage = () => {
           current: response.data.current,
           forecast: response.data.forecast.forecastday[0].hour,
         });
-      } catch (err: any) {
-        if (axios.isAxiosError(err) && err.response?.status === 400) {
-          setError(`Lokasi "${lokasi}" tidak ditemukan. Silakan coba lagi.`);
+      } catch (err) {
+        // Cek jika error berasal dari Axios
+        if (axios.isAxiosError(err)) {
+          // Cek jika errornya adalah karena lokasi tidak ditemukan (status 400)
+          if (err.response?.status === 400) {
+            setError(`Lokasi "${lokasi}" tidak ditemukan. Silakan coba lagi.`);
+          } else {
+            // Untuk error Axios lainnya (misal: network error)
+            setError(err.message || "Terjadi kesalahan jaringan.");
+          }
+        } else if (err instanceof Error) {
+          // Untuk error JavaScript umum (misal: dari 'throw new Error' di atas)
+          setError(err.message);
         } else {
-          setError(err.message || "Terjadi kesalahan saat mengambil data.");
+          // Untuk error yang tidak terduga
+          setError("Terjadi kesalahan yang tidak diketahui.");
         }
         setCuaca(null);
       } finally {
